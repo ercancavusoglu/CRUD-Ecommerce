@@ -1,0 +1,60 @@
+<?php
+
+/*
+|--------------------------------------------------------------------------
+| Routes File
+|--------------------------------------------------------------------------
+|
+| Here is where you will register all of the routes in an application.
+| It's a breeze. Simply tell Laravel the URIs it should respond to
+| and give it the controller to call when that URI is requested.
+|
+*/
+
+Route::get('/', function () {
+    return view('welcome');
+});
+
+/*
+|--------------------------------------------------------------------------
+| Application Routes
+|--------------------------------------------------------------------------
+|
+| This route group applies the "web" middleware group to every route
+| it contains. The "web" middleware group is defined in your HTTP
+| kernel and includes session state, CSRF protection, and more.
+|
+*/
+
+Route::group(['middleware' => ['web']], function () {
+    //
+});
+
+Route::group(['middleware' => ['web']], function () {
+	Route::resource('admin/category', 'Admin\\CategoryController');
+});
+Route::group(['middleware' => ['web']], function () {
+	Route::resource('admin/products', 'Admin\\ProductsController');
+});
+Route::group(['middleware' => ['web']], function () {
+	Route::resource('admin/review', 'Admin\\ReviewController');
+});
+
+Route::group(['middleware' => ['web']], function () {
+	Route::resource('admin/informationtabs', 'Admin\\InformationTabsController');
+});
+Route::group(['middleware' => ['web']], function () {
+	Route::resource('admin/information', 'Admin\\InformationController');
+});
+Route::group(['middleware' => ['web']], function () {
+	Route::resource('admin/config', 'Admin\\ConfigController');
+});
+Route::group(['middleware' => ['web']], function () {
+	Route::resource('admin/contact', 'Admin\\ContactController');
+});
+Route::group(['middleware' => ['web']], function () {
+	Route::resource('admin/discounts', 'Admin\\DiscountsController');
+});
+Route::group(['middleware' => ['web']], function () {
+	Route::resource('admin/orders', 'Admin\\OrdersController');
+});
